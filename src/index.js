@@ -1,7 +1,6 @@
 const express = require('express')
+const cors = require('cors')
 const server = express()
-
-server.use(express.json())
 
 /**
  * Server port.
@@ -9,10 +8,21 @@ server.use(express.json())
 const PORT = 3000
 
 /**
+ * Use cors.
+ */
+server.use(cors())
+
+/**
+ * Use JSON.
+ */
+server.use(express.json())
+
+/**
  * Database, just to explain.
  */
 const DB = [
-  { id: 1612370478850, name: 'Pablo', age: 17 }
+  { id: 1612370478850, name: 'Pablo', age: 17 },
+  { id: 1612370478851, name: 'Roberto', age: 15 }
 ]
 
 /**
@@ -135,6 +145,6 @@ server.delete('/users/:id', (req, res) => {
 /**
  * Server running.
  */
-server.listen(PORT, () => {
+server.listen(3000, () => {
   console.log(`Server is Running on port: ${PORT}`)
 })
